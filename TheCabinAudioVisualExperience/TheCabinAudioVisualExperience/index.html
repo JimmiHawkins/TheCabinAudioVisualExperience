@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <title>The Cabin - PAVE - DAT515</title>
+</head>
+
+<body>
+    <script src="js/script.js"></script>
+    <a-scene fog="type: linear; color:#000;">
+        <a-assets>
+
+             <!--ALL REFERENCES FOR IMAGES, MODELS, AND SOUNDS ARE LOCATED IN MY DESIGN JOURNAL
+                (https://jimmihawkins.myportfolio.com/programming-audio-visual-experiences-journal) 
+            -->
+
+            <!--images-->
+            
+            <img id="forestFloor" src="img/textures/forestFloor.jpg" />
+            <img id="tree" src="img/tree.png" />
+            <img id="treeSky" src="img/textures/treeSky.jpg" />
+            <img id="nightSky" src="img/textures/nightSky.jpg" />
+            <img id="treeLine" src="img/treeLine.png" />
+            <img id="moon" src="img/moon.png">
+
+            <!--models-->
+
+            <a-asset-item id="houseObj" src="models/WoodenCabinObj/WoodenCabinObj.obj"></a-asset-item>
+            <a-asset-item id="houseMtl" src="models/WoodenCabinObj/WoodenCabinObj.mtl"></a-asset-item>
+            
+            <a-asset-item id="lanternObj" src="models/LanternObj/SA_LD_Medieval_Horn_Lantern.obj"></a-asset-item>
+            <a-asset-item id="lanternMtl" src="models/LanternObj/SA_LD_Medieval_Horn_Lantern.mtl"></a-asset-item>
+            <a-asset-item id="bed" src="models/messyBed/scene.gltf"></a-asset-item>
+            <a-asset-item id="door" src="models/wooden_door/scene.gltf"></a-asset-item>
+
+        </a-assets>
+
+        <!--camera black out-->
+        
+        <a-sphere radius="0.5" material="shader:flat; color: black; side: double " animation="property: position; delay: 120000; from: 10 50 15; to: 10 5 15; dur: 1;" ></a-sphere>
+       
+         <!--camera-->
+
+        <a-camera wasd-controls-enabled="false" position="10 5 15">
+
+            <!--camera black in-->
+
+            <a-sphere radius="0.5" material="shader:flat; color: black; side: double " animation="property: visible; delay: 6000; from: true; to: false; dur: 10;"></a-sphere>
+
+                      <!--camera sounds-->
+                      
+                      <a-sound src="url(sounds/breath2.mp3)" volume="0.1" autoplay="true"></a-sound>
+                      <a-sound src="url(sounds/eerieBackground3.mp3)" volume="0.2" autoplay="true"></a-sound>
+                      <a-sound src="url(sounds/heart4.mp3)" volume="0.1" autoplay="true"></a-sound>
+                      <a-sound src="url(sounds/close2.mp3)" volume="0.1" autoplay="true"></a-sound>
+
+        </a-camera>
+
+        <!--sounds-->
+
+        <a-sound src="src: url(sounds/background2.mp3)" volume="3" autoplay="true" position="-10 0 -40"></a-sound>
+        <a-sound src="src: url(sounds/background2.mp3)"  volume="3" autoplay="true" position="-30 0 -15"></a-sound>
+        <a-sound src="src: url(sounds/background2.mp3)" volume="3" autoplay="true" position="-30 0 5"></a-sound>
+
+        <a-sound src="url(sounds/knockDoor8.mp3)" volume="10" autoplay="true" loop="false" position="3.322 5.532 -43.97" ></a-sound>
+        <a-sound src="url(sounds/rattle.mp3)" volume="10" autoplay="true" loop="false" position="3.322 5.532 -43.97" ></a-sound>
+
+        <a-sound src="url(sounds/doorCrack.mp3)" volume="5" autoplay="true" position="3.322 5.532 -43.97" ></a-sound>
+        <a-sound src="url(sounds/creak.mp3)" volume="5" autoplay="true" position="3.322 5.532 -43.97" ></a-sound>
+
+        <a-sound src="url(sounds/steps3.mp3)" volume="5" autoplay="true" position="3.322 5.532 -43.97" animation="property: position; from:5 1.5 -43.970; to:-9.40 1.5 8; dur: 17000; delay:53000 ; " ></a-sound>
+
+        <a-sound src="url(sounds/girl.mp3)" volume="5" autoplay="true" position="-9.40 7 8" ></a-sound>
+
+        <a-sound src="url(sounds/scratch.mp3)" volume="5" autoplay="true" position="3.322 5.532 27" ></a-sound>
+        <a-sound src="url(sounds/footLeaf.mp3)" volume="3" autoplay="true" position="3.322 5.532 27"   ></a-sound>
+
+
+        <!--light-->
+
+        <a-entity light="type: ambient; intensity: 0;"></a-entity>
+       
+        <a-entity id="moonLight" light=" type: point; intensity: 2; color: #1a2d47; castShadow: true;" position="-5 70 40"></a-entity>
+        <a-entity id="moonLight2" light="type: point; intensity: 2; color: #1a2d47; castShadow: true;" position="-15.293 43.390 -96.244"></a-entity>
+        <a-entity id="lanternDoor" animation="property: light.intensity; from:3; to:0; delay:50000 dur: 30; easings: easeInOutSine; dir: alternate; autoplay: true"
+                  light="type: point; intensity: 3; color: #380e00; castShadow: true; distance: 40"  position="13.634 -2.477 -38.123"   ></a-entity>
+        <a-entity id="lanternBeam" animation="property: light.intensity; from:3; to:0; delay:50000 dur: 30; easing: easeInOutSine; dir: alternate; autoplay: true"
+                  light="type: point; intensity: 3; color: #380e00; castShadow: true; distance: 35"  position="0.516 20 1.171"></a-entity>
+        
+        <!--floor-->
+
+        <a-plane shader: flat; shadow="recieve: true;" src="#forestFloor" repeat="25 25" position="0 -10 0" rotation="-90 0 0" width="2000" height="2000" color="000"></a-plane>
+        
+        <!--models-->
+
+        <a-entity id="houseModel" obj-model="obj: #houseObj; mtl: #houseMtl;" position="-4 -10 -10" rotation="0 180 0" shadow="cast: true;"></a-entity>
+        <a-entity id="lanternDoorModel" obj-model="obj: #lanternObj; mtl: #lanternMtl;" scale="5 5 5 "position="5 0 -45" rotation="0 180 0" shadow="cast: true;"></a-entity>
+        <a-entity id="lanternBeamModel" obj-model="obj: #lanternObj; mtl: #lanternMtl;" scale="5 5 5 "position="-13.308 22.797 -4.434" rotation="0 180 0" shadow="cast: true;"></a-entity>
+        <a-entity id="bedModel" gltf-model="#bed" scale="13 13 13 "position="5 -7 9" rotation="0 180 0" shadow="cast: true;"></a-entity> 
+        <a-entity id="doorModel" animation="property: position; from:3.322 -5.917 -43.970; to:0 -5.917 -45; delay:52000 ; easing: easeInOutSine;" gltf-model="#door" scale="3.390 3.477 3.000 "position="3.322 -5.917 -43.970" rotation="0 180 0" shadow="cast: true;"></a-entity> 
+
+        <!--sky--> 
+
+        <a-sky repeat="7 7" src="#nightSky"></a-sky>
+        <a-image rotation="40 0 0 " width="30" height="30" position="-40 220 -300" src="#moon"></a-image>
+
+        <!--treeLine--> 
+
+        <a-image rotation="" width="1000" height="30" position="0 5 -300" src="#treeLine"></a-image>
+        <a-image rotation="" width="1000" height="30" position="0 5 300" src="#treeLine"></a-image>
+        <a-image rotation="0 90 0" width="1000" height="30" position="300 5 0" src="#treeLine"></a-image>
+        <a-image rotation="0 -90 0" width="1000" height="30" position="-300 5 0" src="#treeLine"></a-image>
+
+        <!--trees--> 
+
+        <a-image rotation="0 0 0" width="100" height="100" position="0 23 -290" src="#tree"></a-image>
+        <a-image rotation="0 0 0" width="100" height="100" position="50 23 -280" src="#tree"></a-image>
+        <a-image rotation="0 0 0" width="100" height="100" position="100 20 -270" src="#tree"></a-image>
+        <a-image rotation="0 0 0" width="100" height="100" position="120 20 -260" src="#tree"></a-image>
+        <a-image rotation="0 -30 0" width="100" height="100" position="250 19 -270" src="#tree"></a-image>a
+        <a-image rotation="0 -20 0" width="100" height="100" position="200 26 -250" src="#tree"></a-image>
+        <a-image rotation="0 0 0" width="100" height="100" position="-50 18 -250" src="#tree"></a-image>
+        <a-image rotation="0 0 0" width="100" height="100" position="-120 24 -200" src="#tree"></a-image>
+        <a-image rotation="0 40 0" width="100" height="100" position="-165.442 24 -170" src="#tree"></a-image>
+        <a-image rotation="0 0 0" width="100" height="100" position="0 23 290" src="#tree"></a-image>
+        <a-image rotation="0 0 0" width="100" height="100" position="50 23 280" src="#tree"></a-image>
+        <a-image rotation="0 0 0" width="100" height="100" position="100 20 270" src="#tree"></a-image>
+        <a-image rotation="0 0 0" width="100" height="100" position="120 20 260" src="#tree"></a-image>
+        <a-image rotation="0 30 0" width="100" height="100" position="250 19 270" src="#tree"></a-image>a
+        <a-image rotation="0 20 0" width="100" height="100" position="200 26 250" src="#tree"></a-image>
+        <a-image rotation="0 0 0" width="100" height="100" position="-50 18 250" src="#tree"></a-image>
+        <a-image rotation="0 0 0" width="100" height="100" position="-120 24 200" src="#tree"></a-image>
+        <a-image rotation="0 90 0" width="100" height="100" position="290 23 0" src="#tree"></a-image>
+        <a-image rotation="0 90 0" width="100" height="100" position="280 23 50" src="#tree"></a-image>
+        <a-image rotation="0 90 0" width="100" height="100" position="270 20 100" src="#tree"></a-image>
+        <a-image rotation="0 90 0" width="100" height="100" position="260 20 120" src="#tree"></a-image>
+        <a-image rotation="0 90 0" width="100" height="100" position="250 18 -50" src="#tree"></a-image>
+        <a-image rotation="0 90 0" width="100" height="100" position="200 24 -120" src="#tree"></a-image>
+        <a-image rotation="0 -70 0" width="100" height="100" position="190 24 -170" src="#tree"></a-image>
+        <a-image rotation="0 -50 0" width="100" height="100" position="170 24 -200" src="#tree"></a-image>
+        <a-image rotation="0 -90 0" width="100" height="100" position="-290 23 0" src="#tree"></a-image>
+        <a-image rotation="0 -90 0" width="100" height="100" position="-280 23 50" src="#tree"></a-image>
+        <a-image rotation="0 -90 0" width="100" height="100" position="-270 20 150" src="#tree"></a-image>
+        <a-image rotation="0 -90 0" width="100" height="100" position="-260 19 250" src="#tree"></a-image>a
+        <a-image rotation="0 -90 0" width="100" height="100" position="-250 26 200" src="#tree"></a-image>
+        <a-image rotation="0 -90 0" width="100" height="100" position="-230 18 -50" src="#tree"></a-image>
+        <a-image rotation="0 -90 0" width="100" height="100" position="-180 24 -120" src="#tree"></a-image>
+        <a-image rotation="0 80 0" width="100" height="100" position="-170 10 -200" src="#tree"></a-image>
+        <a-image rotation="0 80 0" width="100" height="100" position="-150 10 -40" src="#tree"></a-image>
+        <a-image rotation="0 80 0" width="100" height="100" position="-140 10 0" src="#tree"></a-image>
+    
+    </a-scene>
+</body>
+
+</html>

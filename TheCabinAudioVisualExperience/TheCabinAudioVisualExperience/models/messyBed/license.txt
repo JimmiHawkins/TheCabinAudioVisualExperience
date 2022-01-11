@@ -1,0 +1,11 @@
+Model Information:
+* title:	Messy bed 2.0 (with wall mounted backboard)
+* source:	https://sketchfab.com/3d-models/messy-bed-20-with-wall-mounted-backboard-a2b2645701c94fa49e65661806219c6b
+* author:	thethieme (https://sketchfab.com/thethieme)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Messy bed 2.0 (with wall mounted backboard)" (https://sketchfab.com/3d-models/messy-bed-20-with-wall-mounted-backboard-a2b2645701c94fa49e65661806219c6b) by thethieme (https://sketchfab.com/thethieme) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
