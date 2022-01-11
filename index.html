@@ -15,6 +15,10 @@
     <a-scene fog="type: linear; color:#000;">
         <a-assets>
 
+             <!--ALL REFERENCES FOR IMAGES, MODELS, AND SOUNDS ARE LOCATED IN MY DESIGN JOURNAL
+                (https://jimmihawkins.myportfolio.com/programming-audio-visual-experiences-journal) 
+            -->
+
             <!--images-->
             
             <img id="forestFloor" src="img/textures/forestFloor.jpg" />
@@ -42,7 +46,7 @@
        
          <!--camera-->
 
-        <a-camera wasd-controls-enabled="false" position="10 5 15">
+        <a-camera wasd-controls-enabled="true" position="10 5 15">
 
             <!--camera black in-->
 
@@ -82,7 +86,7 @@
         <a-entity light="type: ambient; intensity: 0;"></a-entity>
        
         <a-entity id="moonLight" light=" type: point; intensity: 2; color: #1a2d47; castShadow: true;" position="-5 70 40"></a-entity>
-        <a-entity id="moonLight2" light="type: point; intensity: 2; color: #1a2d47; castShadow: true;" position="30 30 50"></a-entity>
+        <a-entity id="moonLight2" light="type: point; intensity: 2; color: #1a2d47; castShadow: true;" position="-15.293 43.390 -96.244"></a-entity>
         <a-entity id="lanternDoor" animation="property: light.intensity; from:3; to:0; delay:50000 dur: 30; easings: easeInOutSine; dir: alternate; autoplay: true"
                   light="type: point; intensity: 3; color: #380e00; castShadow: true; distance: 40"  position="13.634 -2.477 -38.123"   ></a-entity>
         <a-entity id="lanternBeam" animation="property: light.intensity; from:3; to:0; delay:50000 dur: 30; easing: easeInOutSine; dir: alternate; autoplay: true"
